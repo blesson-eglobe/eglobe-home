@@ -1,2 +1,2 @@
 # eglobe-home
-eGlobe revamped page for SEO and services.
+eGlobe revamped page for better UI and SEO friendly.
