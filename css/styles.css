@@ -426,7 +426,6 @@ input {
 .hero-section .container-pro {
   position: relative;
   display: flex;
-  flex-col: column;
   align-items: center;
   text-align: center;
   padding-top: 6rem;
