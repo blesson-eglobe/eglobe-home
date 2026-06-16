@@ -44,6 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.getElementById("site-menu");
   const navItems = document.querySelectorAll(".header-nav .nav-item");
   const indicator = document.getElementById("nav-indicator");
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+
+  if (mobileMenuBtn && navContainer) {
+    mobileMenuBtn.addEventListener("click", () => {
+      const isExpanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+      mobileMenuBtn.setAttribute("aria-expanded", !isExpanded);
+      mobileMenuBtn.classList.toggle("is-active");
+      navContainer.classList.toggle("is-open");
+    });
+  }
 
   const moveIndicator = (element) => {
     if (!element || !indicator || !navContainer) return;
@@ -72,6 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click navigation interaction
     item.addEventListener("click", (e) => {
       e.preventDefault();
+      
+      // Close mobile menu if open
+      if (navContainer.classList.contains("is-open")) {
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.classList.remove("is-active");
+        navContainer.classList.remove("is-open");
+      }
+
       const targetSelector = item.getAttribute("href");
       const targetElement = document.querySelector(targetSelector);
       
@@ -85,6 +103,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Also close menu when mobile CTA is clicked
+  const mobileCta = document.querySelector(".mobile-cta");
+  if (mobileCta) {
+    mobileCta.addEventListener("click", () => {
+      if (navContainer.classList.contains("is-open")) {
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.classList.remove("is-active");
+        navContainer.classList.remove("is-open");
+      }
+    });
+  }
 
   // Track active sections via IntersectionObserver
   const sections = document.querySelectorAll("section[id]");
