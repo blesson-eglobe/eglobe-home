@@ -45,13 +45,26 @@
           <a href="#services" data-href="#services" class="nav-item">Expertise</a>
           <a href="#cases" data-href="#cases" class="nav-item">Clients</a>
           <a href="#contact" data-href="#contact" class="nav-item">Contact Us</a>
+
+          <!-- Mobile CTA Connect Link -->
+          <a href="#contact" class="btn-primary mobile-cta">
+            Let's Connect
+            <span aria-hidden="true">↗</span>
+          </a>
         </nav>
 
-        <!-- CTA Connect Link -->
-        <a href="#contact" class="btn-primary header-cta">
+        <!-- Desktop CTA Connect Link -->
+        <a href="#contact" class="btn-primary header-cta desktop-cta">
           Let's Connect
           <span aria-hidden="true">↗</span>
         </a>
+
+        <!-- Hamburger Menu Button -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
       </div>
     </div>
   </header>
@@ -892,7 +905,7 @@
 
               <div class="case-footer">
                 <div class="client-info">
-                  <img src="assets/avatar-1.jpg" alt="Liam Fisher" class="client-avatar" loading="lazy">
+                  <img src="images/avatar-1.jpg" alt="Liam Fisher" class="client-avatar" loading="lazy">
                   <div>
                     <p class="client-name">Liam Fisher</p>
                     <p class="client-role">Business Development Director</p>
@@ -975,7 +988,7 @@
 
               <div class="case-footer">
                 <div class="client-info">
-                  <img src="assets/avatar-2.jpg" alt="Gina Atkins" class="client-avatar" loading="lazy">
+                  <img src="images/avatar-2.jpg" alt="Gina Atkins" class="client-avatar" loading="lazy">
                   <div>
                     <p class="client-name">Gina Atkins</p>
                     <p class="client-role">VP of Operations</p>
@@ -1058,7 +1071,7 @@
 
               <div class="case-footer">
                 <div class="client-info">
-                  <img src="assets/avatar-3.jpg" alt="Gregory Segall" class="client-avatar" loading="lazy">
+                  <img src="images/avatar-3.jpg" alt="Gregory Segall" class="client-avatar" loading="lazy">
                   <div>
                     <p class="client-name">Gregory Segall</p>
                     <p class="client-role">President</p>
@@ -1274,13 +1287,6 @@
           <p class="faq-subtitle">
             The questions every buyer asks on the first call — answered here so your first call can go deeper.
           </p>
-          <a href="mailto:hello@eglobeits.com" class="btn-ask-anything">
-            <!-- MessageCircle Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
-            </svg>
-            Ask us anything
-          </a>
         </div>
 
         <!-- Accordion Box -->
@@ -1475,47 +1481,6 @@
           <p class="footer-sub">
             Join 200+ leaders shipping with eGlobe. Monthly insights on AI, commerce, and engineering — no fluff, ever.
           </p>
-
-          <form class="newsletter-form" onsubmit="event.preventDefault();">
-            <input type="email" required placeholder="you@company.com" aria-label="Email address for newsletter">
-            <button type="submit">Subscribe</button>
-          </form>
-          <p class="form-sub-text">We send one email a month. Unsubscribe anytime.</p>
-
-          <!-- Social links -->
-          <div class="socials-row">
-            <a href="#" class="social-circle-btn" aria-label="LinkedIn">
-              <!-- Linkedin Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="social-circle-btn" aria-label="Twitter">
-              <!-- Twitter Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                </path>
-              </svg>
-            </a>
-            <a href="#" class="social-circle-btn" aria-label="GitHub">
-              <!-- Github Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
-                </path>
-              </svg>
-            </a>
-            <a href="mailto:hello@eglobeits.com" class="social-circle-btn" aria-label="Email">
-              <!-- Mail Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m22 2-7 20-4-9-9-4Z"></path>
-                <path d="M22 2 11 13"></path>
-              </svg>
-            </a>
-          </div>
         </div>
 
         <!-- Links Columns -->
