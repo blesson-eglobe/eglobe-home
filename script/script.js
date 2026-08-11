@@ -273,9 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ----------------------------------------------------
-  // 7. SCROLL EFFECT: Stacking Card Decks (Challenges & Case Studies)
-  // ----------------------------------------------------
   function initStackingDeck(sectionId, wrapperId, cardSelector) {
     const section = document.getElementById(sectionId);
     const deckWrapper = document.getElementById(wrapperId);
@@ -283,22 +280,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = section.querySelectorAll(cardSelector);
     if (cards.length === 0) return;
 
-    if (reducedMotion) {
+    const isMobile = () => window.innerWidth < 1024;
+
+    const resetToNormalFlow = () => {
       cards.forEach((card) => {
-        card.style.position = "relative";
-        card.style.top = "auto";
-        card.style.left = "auto";
-        card.style.right = "auto";
-        card.style.transform = "none";
-        card.style.opacity = "1";
-        card.style.zIndex = "1";
+        card.style.position = "";
+        card.style.top = "";
+        card.style.left = "";
+        card.style.right = "";
+        card.style.transform = "";
+        card.style.opacity = "";
+        card.style.zIndex = "";
         card.removeAttribute("aria-hidden");
-        card.style.pointerEvents = "auto";
-        card.style.marginBottom = "1.5rem";
+        card.style.pointerEvents = "";
+        card.style.marginBottom = "";
       });
-      deckWrapper.style.height = "auto";
-      section.style.height = "auto";
-      return;
+      deckWrapper.style.height = "";
+      section.style.height = "";
+    };
+
+    if (reducedMotion || isMobile()) {
+      resetToNormalFlow();
     }
 
     const N = cards.length;
@@ -307,11 +309,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const MAX_STACK = 3;
     const PEEK_AREA = MAX_STACK * PEEK; // 48px
 
-    // Setup section and wrapper heights
-    section.style.height = `calc(${N + 1} * 100vh)`;
-    deckWrapper.style.height = `${PEEK_AREA + 440}px`;
+    const setupDesktopLayout = () => {
+      section.style.height = `calc(${N + 1} * 100vh)`;
+      deckWrapper.style.height = `${PEEK_AREA + 440}px`;
+    };
+
+    if (!reducedMotion && !isMobile()) {
+      setupDesktopLayout();
+    }
 
     const updateCardStack = () => {
+      if (isMobile() || reducedMotion) {
+        resetToNormalFlow();
+        return;
+      }
+      setupDesktopLayout();
+
       const { top, height } = section.getBoundingClientRect();
       const vh = window.innerHeight;
       const scrollable = height - vh;
