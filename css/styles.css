@@ -129,6 +129,14 @@ input {
   color: var(--color-foreground);
   text-wrap: balance;
 }
+@media (max-width: 640px) {
+  .heading-hero {
+    font-size: clamp(2.85rem, 9.5vw, 3.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    margin-top: 1.75rem;
+  }
+}
 .heading-section {
   font-family: var(--font-display);
   font-size: clamp(1.875rem, 3.5vw, 3rem);
@@ -547,9 +555,14 @@ input {
   position: relative;
   background-color: var(--color-background);
   overflow: hidden;
-  height: 100svh;
-  display: grid;
-  place-items: center;
+  padding-top: 8rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+  }
 }
 .hero-section .hero-pattern,
 .hero-section .mesh-soft,
@@ -560,16 +573,11 @@ input {
 .hero-section .container-pro {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 6rem;
-  padding-bottom: 5rem;
-}
-@media (min-width: 1024px) {
-  .hero-section .container-pro {
-    padding-top: 8rem;
-    padding-bottom: 7rem;
-  }
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .hero-section .hero-reveal {
   margin-inline: auto;
@@ -585,12 +593,17 @@ input {
   border-radius: 9999px;
   border: 1px solid rgba(45, 123, 255, 0.2);
   background: rgba(45, 123, 255, 0.06);
-  padding: 0.375rem 0.875rem;
+  padding: 0.45rem 1rem;
   font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-primary);
+}
+@media (max-width: 640px) {
+  .hero-section .hero-eyebrow-container {
+    display: none !important;
+  }
 }
 .hero-section .hero-eyebrow-container .pulse-dot-container {
   position: relative;
@@ -624,6 +637,14 @@ input {
   line-height: 1.75;
   color: var(--color-muted-foreground);
 }
+@media (max-width: 640px) {
+  .hero-section .hero-description {
+    margin-top: 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    padding-inline: 0.5rem;
+  }
+}
 .hero-section .hero-ctas {
   margin-top: 2rem;
   display: flex;
@@ -631,6 +652,20 @@ input {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+}
+@media (max-width: 640px) {
+  .hero-section .hero-ctas {
+    margin-top: 2.25rem;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: column;
+  }
+  .hero-section .hero-ctas .btn-hero-consultation,
+  .hero-section .hero-ctas .btn-secondary {
+    width: 100%;
+    max-width: 18.5rem;
+    height: 3rem;
+  }
 }
 .hero-section .hero-ctas .btn-hero-consultation {
   position: relative;
@@ -723,41 +758,61 @@ input {
 }
 @media (max-width: 640px) {
   .hero-section .hero-proof-stats {
-    gap: 1rem;
-    padding: 0.875rem 1.5rem;
-    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0.75rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+  .hero-section .hero-proof-stats .proof-divider {
+    display: none !important;
+  }
+  .hero-section .hero-proof-stats .proof-stat {
+    padding: 0 0.5rem;
+    border: none !important;
   }
   .hero-section .hero-proof-stats .proof-stat .proof-num {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
   .hero-section .hero-proof-stats .proof-stat .proof-lbl {
     font-size: 0.75rem;
   }
-  .hero-section .hero-proof-stats .proof-divider {
-    height: 1.75rem;
+}
+@keyframes marquee-infinite-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 .marquee-section {
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  background-color: rgba(255, 255, 255, 0.6);
+  border-top: none;
+  border-bottom: none;
+  background: transparent !important;
+  background-color: transparent !important;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
+  width: 100%;
+  overflow: hidden;
 }
 .marquee-section .marquee-title {
   text-align: center;
-  font-size: 0.625rem;
-  font-weight: 600;
+  font-size: 0.6875rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: rgba(91, 107, 145, 0.6);
+  color: rgba(91, 107, 145, 0.75);
 }
 .marquee-section .marquee-wrapper {
   position: relative;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 .marquee-section .marquee-track {
   display: flex;
@@ -765,18 +820,48 @@ input {
   align-items: center;
   gap: 3.5rem;
   white-space: nowrap;
+  animation: marquee-infinite-slide 28s linear infinite;
+  will-change: transform;
+}
+.marquee-section .marquee-track:hover {
+  animation-play-state: paused;
 }
 .marquee-section .marquee-track .marquee-item {
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(10, 31, 77, 0.35);
+  color: rgba(10, 31, 77, 0.45);
   transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
 }
 .marquee-section .marquee-track .marquee-item:hover {
-  color: rgba(10, 31, 77, 0.65);
+  color: rgba(10, 31, 77, 0.85);
   transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  .marquee-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  .marquee-section .marquee-title {
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    padding-inline: 1rem;
+  }
+  .marquee-section .marquee-wrapper {
+    margin-top: 1.25rem;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-section .marquee-track {
+    gap: 2.25rem;
+    animation-duration: 20s;
+  }
+  .marquee-section .marquee-track .marquee-item {
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+  }
 }
 .manifesto-section,
 section#about-eglobe {
@@ -878,6 +963,7 @@ section#about-eglobe .manifesto-pills {
   align-items: center;
   gap: 0.85rem;
   margin-top: 1.5rem;
+  width: 100%;
 }
 .manifesto-section .manifesto-pills .pills-row,
 section#about-eglobe .manifesto-pills .pills-row {
@@ -908,6 +994,30 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 640px) {
+  .manifesto-section .manifesto-pills,
+  section#about-eglobe .manifesto-pills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 0.5rem;
+    max-width: 24rem;
+    margin: 1.5rem auto 0;
+  }
+  .manifesto-section .manifesto-pills .pills-row,
+  section#about-eglobe .manifesto-pills .pills-row {
+    display: contents;
+  }
+  .manifesto-section .manifesto-pills .manifesto-pill,
+  section#about-eglobe .manifesto-pills .manifesto-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.45rem 0.65rem;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
 }
 .stats-section {
   background-color: var(--color-background);
@@ -1094,6 +1204,52 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
 .challenges-section {
   position: relative;
   background-color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 1023px) {
+  .challenges-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 4.5rem 0 3.5rem !important;
+  }
+  .challenges-section .challenges-sticky-viewport {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+  .challenges-section .challenges-header {
+    padding-bottom: 2rem !important;
+    padding-top: 0 !important;
+  }
+  .challenges-section .challenges-deck-container {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  .challenges-section .challenges-deck-relative {
+    position: static !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .challenges-section .challenge-card,
+  .challenges-section .case-deck-card {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+  .challenges-section .challenge-card:nth-child(n + 3),
+  .challenges-section .case-deck-card:nth-child(n + 3) {
+    display: none !important;
+  }
 }
 .challenges-section .challenges-sticky-viewport {
   position: sticky;
@@ -1919,15 +2075,55 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   line-height: 1.625;
   color: var(--color-muted-foreground);
 }
+.comparison-section .table-scroll-hint-mobile {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .comparison-section .table-scroll-hint-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(45, 123, 255, 0.08);
+    border: 1px solid rgba(45, 123, 255, 0.18);
+    border-radius: 9999px;
+    padding: 0.4rem 1rem;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    width: max-content;
+  }
+  .comparison-section .table-scroll-hint-mobile svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+}
 .comparison-section .comparison-table-wrapper {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
   background: #ffffff;
   border: 1px solid rgba(10, 31, 77, 0.08);
   border-radius: 1.25rem;
   box-shadow: 0 4px 24px -6px rgba(10, 31, 77, 0.06);
   padding: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45, 123, 255, 0.35) rgba(10, 31, 77, 0.04);
+}
+.comparison-section .comparison-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.comparison-section .comparison-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(10, 31, 77, 0.04);
+  border-radius: 9999px;
+}
+.comparison-section .comparison-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(45, 123, 255, 0.35);
+  border-radius: 9999px;
 }
 .comparison-section .comparison-table {
   width: 100%;
@@ -1935,6 +2131,11 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   border-collapse: separate;
   border-spacing: 0;
   text-align: left;
+}
+@media (max-width: 768px) {
+  .comparison-section .comparison-table {
+    min-width: 720px;
+  }
 }
 .comparison-section .comparison-table th,
 .comparison-section .comparison-table td {
@@ -1952,6 +2153,19 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   color: var(--color-foreground);
   padding-left: 1.75rem;
 }
+@media (max-width: 768px) {
+  .comparison-section .comparison-table th:first-child,
+  .comparison-section .comparison-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: #ffffff;
+    box-shadow: 4px 0 12px -2px rgba(10, 31, 77, 0.06);
+    width: 38%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 .comparison-section .comparison-table thead th {
   background: #f8fafc;
   font-size: 0.9375rem;
@@ -1963,6 +2177,12 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
 }
 .comparison-section .comparison-table thead th:first-child {
   border-top-left-radius: 0.875rem;
+}
+@media (max-width: 768px) {
+  .comparison-section .comparison-table thead th:first-child {
+    background: #f8fafc;
+    z-index: 6;
+  }
 }
 .comparison-section .comparison-table thead th:last-child {
   border-top-right-radius: 0.875rem;
@@ -2134,6 +2354,11 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+}
+@media (max-width: 767px) {
+  .testimonials-section .testimonials-grid .testimonial-card:nth-child(n + 3) {
+    display: none !important;
+  }
 }
 @media (min-width: 768px) {
   .testimonials-section .testimonials-grid {
@@ -3964,6 +4189,11 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.5rem 2rem;
 }
+@media (max-width: 768px) {
+  .cta-section .cta-banner .cta-logo-strip {
+    display: none !important;
+  }
+}
 @media (min-width: 1024px) {
   .cta-section .cta-banner .cta-logo-strip {
     padding-left: 4rem;
@@ -4527,13 +4757,24 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
     font-size: clamp(1.65rem, 5.5vw, 2.25rem);
     margin-bottom: 2rem;
   }
-  .manifesto-section .manifesto-pill {
-    padding: 0.45rem 1.15rem;
-    font-size: 0.8125rem;
+  .manifesto-section .manifesto-pills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem 0.5rem;
+    max-width: 24rem;
+    margin: 1.5rem auto 0;
   }
-  .manifesto-section .manifesto-pills,
   .manifesto-section .manifesto-pills .pills-row {
-    gap: 0.5rem;
+    display: contents;
+  }
+  .manifesto-section .manifesto-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.45rem 0.65rem;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
   }
 }
 .scroll-darken-text {
