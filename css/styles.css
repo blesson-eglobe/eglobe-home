@@ -778,6 +778,137 @@ input {
   color: rgba(10, 31, 77, 0.65);
   transform: translateY(-2px);
 }
+.manifesto-section,
+section#about-eglobe {
+  padding: 6rem 0 6.5rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #071530 !important;
+  background-image: radial-gradient(ellipse 60% 50% at 85% 15%, rgba(45, 123, 255, 0.45), transparent 60%), radial-gradient(ellipse 50% 45% at 15% 85%, rgba(79, 139, 255, 0.35), transparent 60%) !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+@media (min-width: 1024px) {
+  .manifesto-section,
+  section#about-eglobe {
+    padding: 7.5rem 0 8.5rem;
+  }
+}
+.manifesto-section .manifesto-wrapper,
+section#about-eglobe .manifesto-wrapper {
+  position: relative;
+  text-align: center;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.manifesto-section .manifesto-eyebrow-container,
+section#about-eglobe .manifesto-eyebrow-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.manifesto-section .manifesto-eyebrow-container .manifesto-eyebrow,
+section#about-eglobe .manifesto-eyebrow-container .manifesto-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #7ab8ff;
+  background-color: rgba(45, 123, 255, 0.15);
+  border: 1px solid rgba(122, 184, 255, 0.3);
+  border-radius: 9999px;
+  padding: 0.45rem 1.15rem;
+}
+.manifesto-section .manifesto-eyebrow-container .manifesto-eyebrow .eyebrow-dot,
+section#about-eglobe .manifesto-eyebrow-container .manifesto-eyebrow .eyebrow-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: pulse-slow 2.5s infinite;
+}
+.manifesto-section .manifesto-heading,
+section#about-eglobe .manifesto-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  color: #ffffff !important;
+  max-width: 58rem;
+  margin: 0 auto 3rem;
+  text-wrap: balance;
+}
+.manifesto-section .manifesto-heading .scroll-word,
+section#about-eglobe .manifesto-heading .scroll-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.manifesto-section .manifesto-heading .scroll-char,
+section#about-eglobe .manifesto-heading .scroll-char {
+  display: inline-block;
+  color: #ffffff !important;
+  opacity: 0.25;
+  will-change: opacity;
+  transition: opacity 0.1s ease-out;
+}
+.manifesto-section .manifesto-heading .scroll-space,
+section#about-eglobe .manifesto-heading .scroll-space {
+  display: inline-block;
+  opacity: 0.25;
+  will-change: opacity;
+}
+.manifesto-section .manifesto-heading span,
+section#about-eglobe .manifesto-heading span {
+  color: #ffffff;
+}
+.manifesto-section .manifesto-pills,
+section#about-eglobe .manifesto-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+.manifesto-section .manifesto-pills .pills-row,
+section#about-eglobe .manifesto-pills .pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.manifesto-section .manifesto-pills .manifesto-pill,
+section#about-eglobe .manifesto-pills .manifesto-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.25s ease;
+}
+.manifesto-section .manifesto-pills .manifesto-pill:hover,
+section#about-eglobe .manifesto-pills .manifesto-pill:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
 .stats-section {
   background-color: var(--color-background);
   padding-top: 3rem;
@@ -4407,7 +4538,7 @@ input {
 }
 .scroll-darken-text {
   position: relative;
-  color: #0a1f4d;
+  color: inherit;
   user-select: text;
 }
 .scroll-darken-text .scroll-word {
@@ -4416,13 +4547,13 @@ input {
 }
 .scroll-darken-text .scroll-char {
   display: inline-block;
-  color: #0a1f4d;
-  opacity: 0.15;
+  color: inherit;
+  opacity: 0.2;
   will-change: opacity;
   transition: opacity 0.1s ease-out;
 }
 .scroll-darken-text .scroll-space {
   display: inline-block;
-  opacity: 0.15;
+  opacity: 0.2;
   will-change: opacity;
 }
