@@ -1219,7 +1219,7 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
     overflow: visible !important;
   }
   .challenges-section .challenges-header {
-    padding-bottom: 2rem !important;
+    padding-bottom: 2.5rem !important;
     padding-top: 0 !important;
   }
   .challenges-section .challenges-deck-container {
@@ -1232,7 +1232,7 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
     height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5rem !important;
+    gap: 2.5rem !important;
   }
   .challenges-section .challenge-card,
   .challenges-section .case-deck-card {
@@ -1465,8 +1465,8 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   border-radius: 1.25rem;
   border: 1px solid var(--color-border);
   background-color: #ffffff;
-  padding: 1.75rem;
-  box-shadow: 0 4px 24px -6px rgba(10, 31, 77, 0.12);
+  padding: 2rem 1.5rem 2.25rem;
+  box-shadow: 0 4px 24px -6px rgba(10, 31, 77, 0.1);
   transition: transform 0.08s linear, opacity 0.08s linear;
   will-change: transform, opacity;
 }
@@ -1533,16 +1533,21 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
 .challenges-section .case-deck-card .card-icon-wrapper {
   position: relative;
   display: inline-flex;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3.25rem;
+  width: 3.25rem;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 1rem;
+  border-radius: 0.875rem;
+  margin-bottom: 1.25rem;
 }
 @media (min-width: 1024px) {
   .challenges-section .case-deck-card .card-icon-wrapper {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 1rem;
     margin-top: 0.25rem;
+    margin-bottom: 0;
   }
 }
 .challenges-section .case-deck-card .card-icon-wrapper svg {
@@ -1577,7 +1582,7 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
 }
 .challenges-section .case-deck-card .card-content {
   position: relative;
-  margin-top: 1.25rem;
+  margin-top: 0;
   min-width: 0;
   flex: 1;
 }
@@ -1588,18 +1593,26 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
 }
 .challenges-section .case-deck-card .card-content .card-tag-row {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.375rem;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 640px) {
+  .challenges-section .case-deck-card .card-content .card-tag-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
 }
 .challenges-section .case-deck-card .card-content .card-tag-row .card-tag {
   font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--color-muted-foreground);
+  line-height: 1.35;
 }
 .challenges-section .case-deck-card .card-content .card-tag-row .client-badge {
   font-size: 0.75rem;
@@ -1608,7 +1621,10 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   background-color: rgba(45, 123, 255, 0.08);
   border: 1px solid rgba(45, 123, 255, 0.2);
   border-radius: 9999px;
-  padding: 0.2rem 0.625rem;
+  padding: 0.25rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 .challenges-section .case-deck-card .card-content .card-problem {
   margin-top: 0.375rem;
@@ -2378,6 +2394,11 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   box-shadow: 0 4px 20px -8px rgba(10, 31, 77, 0.05);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
+@media (max-width: 640px) {
+  .testimonials-section .testimonial-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
 .testimonials-section .testimonial-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px -12px rgba(10, 31, 77, 0.1);
@@ -2387,6 +2408,7 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
 .testimonials-section .testimonial-card .card-top .stars-row {
@@ -2394,22 +2416,26 @@ section#about-eglobe .manifesto-pills .manifesto-pill:hover {
   align-items: center;
   gap: 0.2rem;
   color: #f59e0b;
+  flex-shrink: 0;
 }
 .testimonials-section .testimonial-card .card-top .stars-row svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 0.95rem;
+  height: 0.95rem;
   fill: currentColor;
+  flex-shrink: 0;
 }
 .testimonials-section .testimonial-card .card-top .client-badge {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 9999px;
   background: #f1f5f9;
   color: #475569;
   border: 1px solid rgba(10, 31, 77, 0.06);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .testimonials-section .testimonial-card .quote-body {
   position: relative;
