@@ -719,12 +719,12 @@ input {
 }
 .hero-section .hero-proof-stats {
   margin-top: 2.75rem;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2.25rem;
-  padding: 1rem 2.5rem;
+  gap: 2.75rem;
+  padding: 0.75rem 1.5rem;
 }
 .hero-section .hero-proof-stats .proof-stat {
   display: flex;
@@ -751,16 +751,13 @@ input {
   white-space: nowrap;
 }
 .hero-section .hero-proof-stats .proof-divider {
-  width: 1px;
-  height: 2rem;
-  background-color: rgba(10, 31, 77, 0.1);
-  display: block;
+  display: none !important;
 }
 @media (max-width: 640px) {
   .hero-section .hero-proof-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem 0.75rem;
+    gap: 1.5rem 1rem;
     padding: 1rem 0.75rem;
     width: 100%;
     max-width: 22rem;
